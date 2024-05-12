@@ -12,9 +12,11 @@ Personal Bash scripts for automation 🤓
 <h3 align="left">Install Dependencies</h3>
 <li>Update System and install</li>
 <br>
-<ul class="gitcode">apt update</ul>
+<pre class="gitcode">apt update</pre>
 <br>
 <li>Install Curl</li>
+<br>
 <pre class="gitcode">apt install curl</pre>
 <li>Run script below</li>
+<br>
 <pre class="gitcode">curl -s https://raw.githubusercontent.com/michaelkeates/new_debian_setup/main/docker/script.sh | bash</pre>
