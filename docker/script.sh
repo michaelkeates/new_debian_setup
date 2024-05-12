@@ -28,15 +28,17 @@ update_system() {
 
 add_user() {
     echo -e "${GREEN}Adding user${CLEAR}"
-    adduser $USER
+    #adduser $USER
+    adduser -p $PASSOWRD $USER
     echo -e "${GREEN}Adding user to sudo${CLEAR}"
     usermod -aG sudo mike
     chmod 0644 /etc/shadow
     #passwd $USER
-    echo $USER:$PASSWORD | chpasswd
+    #echo $USER:$PASSWORD | chpasswd
 }
 
 install_docker() {
+    echo -e "${GREEN}Installing Docker${CLEAR}"
     echo -e "${GREEN}Login${CLEAR}"
     echo -e "${GREEN}Installing Docker${CLEAR}"
     sudo -u mike curl -sSL https://get.docker.com | sh
