@@ -41,9 +41,8 @@ add_user() {
 
 install_docker() {
     echo -e "${GREEN}Installing Docker${CLEAR}"
-    echo -e "${GREEN}Login${CLEAR}"
-    echo -e "${GREEN}Installing Docker${CLEAR}"
     sudo -u mike curl -sSL https://get.docker.com | sh
+    echo -e "${GREEN}WTF?{CLEAR}"
     usermod -aG docker $USER
 }
 
