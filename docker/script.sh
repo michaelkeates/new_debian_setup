@@ -38,9 +38,8 @@ add_user() {
 
 install_docker() {
     echo -e "${GREEN}Login${CLEAR}"
-    su $USER
     echo -e "${GREEN}Installing Docker${CLEAR}"
-    curl -sSL https://get.docker.com | sh
+    sudo -u mike curl -sSL https://get.docker.com | sh
 }
 
 check_root
