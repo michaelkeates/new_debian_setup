@@ -33,7 +33,7 @@ add_user() {
     usermod -aG sudo mike
     chmod 0644 /etc/shadow
     #passwd $USER
-    $PASSWORD | passwd --stdin
+    echo $USER:$PASSWORD | chpasswd
 }
 
 install_docker() {
