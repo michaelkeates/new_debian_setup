@@ -39,13 +39,6 @@ add_user() {
     usermod -aG docker $USER
 }
 
-install_docker() {
-    echo -e "${GREEN}Installing Docker${CLEAR}"
-    sudo -u mike curl -sSL https://get.docker.com | sh
-    echo -e "${GREEN}WTF?{CLEAR}"
-    usermod -aG docker $USER
-}
-
 create_folder() {
     echo -e "${GREEN}Would you like to create a new folder in /mnt/docker/? (y/n)${CLEAR}"
     read -r answer
@@ -64,5 +57,4 @@ create_folder() {
 check_root
 update_system
 add_user
-install_docker
 create_folder
