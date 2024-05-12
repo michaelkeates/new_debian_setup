@@ -18,10 +18,10 @@ fi
 
 update_system() {
     echo "${GREEN}Updating system${CLEAR}"
-    apt update
-    apt upgrade
+    apt -y update
+    apt -y upgrade
     echo "${GREEN}Installing needed packages${CLEAR}"
-    apt install sudo curl
+    apt install -y sudo curl
 }
 
 add_user() {
