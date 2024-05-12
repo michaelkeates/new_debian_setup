@@ -11,7 +11,9 @@ Personal Bash scripts for automation 🤓
 <h2 align="left">Docker Setup</h2>
 <h3 align="left">Install Dependencies</h3>
 <li>Update System and install</li>
-<pre class="gitcode">apt update</pre>
+<br>
+<ul class="gitcode">apt update</ul>
+<br>
 <li>Install Curl</li>
 <pre class="gitcode">apt install curl</pre>
 <li>Run script below</li>
