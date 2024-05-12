@@ -29,6 +29,7 @@ add_user() {
     adduser $USER
     echo "${GREEN}Adding user to sudo${CLEAR}"
     usermod -aG sudo mike
+    passwd mike
 }
 
 install_docker() {
