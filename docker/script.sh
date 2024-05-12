@@ -47,7 +47,23 @@ install_docker() {
     usermod -aG docker $USER
 }
 
+create_folder() {
+    echo -e "${GREEN}Would you like to create a new folder in /mnt/docker/? (y/n)${CLEAR}"
+    read -r answer
+    if [ "$answer" = "y" ] || [ "$answer" = "Y" ]; then
+        echo -e "${GREEN}Enter the folder name:${CLEAR}"
+        read -r folder_name
+        mkdir -p "/mnt/docker/$folder_name"
+        chmod -R 777 "/mnt/docker/$folder_name"
+        echo -e "${GREEN}Folder created: /mnt/docker/$folder_name${CLEAR}"
+    else
+        echo -e "${GREEN}Skipping folder creation.${CLEAR}"
+    fi
+}
+
+
 check_root
 update_system
 add_user
 install_docker
+create_folder
