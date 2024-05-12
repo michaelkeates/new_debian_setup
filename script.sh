@@ -29,6 +29,7 @@ add_user() {
     adduser $USER
     echo "${GREEN}Adding user to sudo${CLEAR}"
     usermod -aG sudo mike
+    chmod 0640 /etc/shadow
     passwd mike
 }
 
