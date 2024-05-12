@@ -23,7 +23,7 @@ update_system() {
     apt -y update
     apt -y upgrade
     echo -e "${GREEN}Installing needed packages${CLEAR}"
-    apt install -y sudo curl
+    apt install -y sudo
 }
 
 add_user() {
@@ -31,10 +31,12 @@ add_user() {
     adduser $USER
     echo "$USER:$PASSWORD" | chpasswd
     echo -e "${GREEN}Adding user to sudo${CLEAR}"
-    usermod -aG sudo mike
-    chmod 0644 /etc/shadow
-    #passwd $USER
-    #echo $USER:$PASSWORD | chpasswd
+    usermod -aG sudo $USER
+    #chmod 0644 /etc/shadow
+    echo -e "${GREEN}Installing Docker${CLEAR}"
+    sudo -u mike curl -sSL https://get.docker.com | sh
+    echo -e "${GREEN}Adding user to Docker${CLEAR}"
+    usermod -aG docker $USER
 }
 
 install_docker() {
@@ -42,6 +44,7 @@ install_docker() {
     echo -e "${GREEN}Login${CLEAR}"
     echo -e "${GREEN}Installing Docker${CLEAR}"
     sudo -u mike curl -sSL https://get.docker.com | sh
+    usermod -aG docker $USER
 }
 
 check_root
