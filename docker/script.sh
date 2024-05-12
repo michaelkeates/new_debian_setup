@@ -1,4 +1,5 @@
-#!/bin/sh -e
+#!/bin/sh
+set -e
 
 VERSION=1.0
 
@@ -7,36 +8,38 @@ RED='\033[1;31m'
 CLEAR='\033[0m'
 
 USER='mike'
+PASSWORD='Samaki142646'
 
 check_root() {
 if [ "$(id -u)" -ne 0 ]; then
-    echo "${RED}Must run as root${CLEAR}"
-    echo "This script must be run as root" 
+    echo -e "${RED}Must run as root${CLEAR}"
+    echo -e "This script must be run as root" 
     exit 1
 fi
 }
 
 update_system() {
-    echo "${GREEN}Updating system${CLEAR}"
+    echo -e "${GREEN}Updating system${CLEAR}"
     apt -y update
     apt -y upgrade
-    echo "${GREEN}Installing needed packages${CLEAR}"
+    echo -e "${GREEN}Installing needed packages${CLEAR}"
     apt install -y sudo curl
 }
 
 add_user() {
-    echo "${GREEN}Adding user${CLEAR}"
+    echo -e "${GREEN}Adding user${CLEAR}"
     adduser $USER
-    echo "${GREEN}Adding user to sudo${CLEAR}"
+    echo -e "${GREEN}Adding user to sudo${CLEAR}"
     usermod -aG sudo mike
-    chmod 0640 /etc/shadow
-    passwd mike
+    chmod 0644 /etc/shadow
+    #passwd $USER
+    $PASSWORD | passwd --stdin
 }
 
 install_docker() {
-    echo "${GREEN}Login${CLEAR}"
+    echo -e "${GREEN}Login${CLEAR}"
     su $USER
-    echo "${GREEN}Installing Docker${CLEAR}"
+    echo -e "${GREEN}Installing Docker${CLEAR}"
     curl -sSL https://get.docker.com | sh
 }
 
