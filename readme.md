@@ -10,7 +10,10 @@ Personal Bash scripts for automation 🤓
 <h1 align="left">How to Use</h1>
 <h2 align="left">Docker Setup</h2>
 <h3 align="left">Install Dependencies</h3>
-<ul>
+<ul>apt install wget
+<li>Install wget</li>
+<pre class="gitcode"><pre class="gitcode">apt install -y sudo curl</pre>
 <li>Run script below</li>
 	<pre class="gitcode">wget -O - https://raw.githubusercontent.com/michaelkeates/new_debian_setup/main/docker/script.sh | bash</pre>
+    <pre class="gitcode">curl -s - https://raw.githubusercontent.com/michaelkeates/new_debian_setup/main/docker/script.sh | bash</pre>
 </ul>
