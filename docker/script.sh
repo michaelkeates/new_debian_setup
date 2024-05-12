@@ -28,8 +28,8 @@ update_system() {
 
 add_user() {
     echo -e "${GREEN}Adding user${CLEAR}"
-    #adduser $USER
-    adduser -p $PASSOWRD $USER
+    adduser $USER
+    echo "$USER:$PASSWORD" | chpasswd
     echo -e "${GREEN}Adding user to sudo${CLEAR}"
     usermod -aG sudo mike
     chmod 0644 /etc/shadow
